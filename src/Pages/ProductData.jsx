@@ -21,7 +21,7 @@ const ProductData = () => {
     <div className='product-data-container'>
       <div className="product-data-inner">
       <div className="img-container">
-          <img src={Items[index].src} className='descr-img'/>
+          <img src={Items[index].src} alt={Items[index].name} className='descr-img'/>
       </div>
       <div className="content">
           <h2 className='descr-item'>{Items[index].name}</h2>

@@ -117,7 +117,7 @@ const Cart = () => {
                             {items.map((item, index) => (
                             <div className='item-container' key={index} style={itemContainerStyles}>
                                 <div className='cart-img-container' ref={cartImgContainer}>
-                                    <img src={item.source} alt='cart-image'/>
+                                    <img src={item.source} alt={item.name}/>
                                 </div>
                                 <div className="cart-content">
                                     <div className="cart-info">
