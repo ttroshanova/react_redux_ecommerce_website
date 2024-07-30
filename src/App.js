@@ -1,10 +1,9 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Nav from './Pages/Nav';
-import Products from './Pages/Products';
-import ProductData from './Pages/ProductData';
-import Cart from './Pages/Cart';
-import { ContextProvider } from './Pages/UserContext';
+import Nav from './features/Nav';
+import Products from './features/Products';
+import ProductData from './features/ProductData';
+import Cart from './features/Cart';
 import { useState, useEffect } from 'react'
 
 function App() {
@@ -29,14 +28,12 @@ function App() {
   return (
     <div className="app">
      <Router>
-     <ContextProvider>
        <Nav hidden={hidden}/>
        <Routes>
           <Route path='/' element={<Products/>}/>
           <Route path='products/:index' element={<ProductData/>}/>
           <Route path='cart' element={<Cart/>}/>
        </Routes>
-       </ContextProvider>
      </Router>
     </div>
   );

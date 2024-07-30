@@ -6,12 +6,9 @@ const Products = () => {
   return (
     <div className="products-container">
           <div className='products'>
-        {Items.map((item, index) => (
-            <Product key={index}
-            index={index}
-            itemSrc={item.src}
-            name={item.name}
-            price={item.price}
+        {Items.map(product => (
+            <Product key={product.id}
+            product={product}
             />
         ))}
     </div>

@@ -1,15 +1,20 @@
 import React, { useEffect } from 'react'
-import UserContext from './UserContext'
-import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import gsap from 'gsap'
+import { useDispatch } from 'react-redux'
+import {addToCart, getTotalQuantity} from './productsSlice'
 
-const Product = ({ index, itemSrc, name, price }) => {
-    const { addToCart } = useContext(UserContext);
+const Product = ({ product }) => {
     let navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const handleAddToCart = (product) => {
+      dispatch(addToCart(product))
+      dispatch(getTotalQuantity())
+    }
 
     const showProduct = () => {
-      navigate(`/products/${index}`)
+      navigate(`/products/${product.id}`)
     }
     useEffect(()=> {
       gsap.to('.product', {
@@ -23,15 +28,15 @@ const Product = ({ index, itemSrc, name, price }) => {
     <div className="product">
       <div className="background" onClick={() => showProduct()}></div>
       <figure>
-        <img src={itemSrc} alt="product"/>
+        <img src={product.src} alt="product"/>
       </figure>
       <div className="item-content">
         <div className='item-description'>
-          <p className="item-name">{name}</p>
-          <p className="item-price">${price}</p>
+          <p className="item-name">{product.name}</p>
+          <p className="item-price">${product.price}</p>
         </div>
         <div className='products-btn-container'>
-          <button className="add" onClick={() => addToCart(index, name, price, itemSrc)}>Add to cart</button>
+          <button className="add" onClick={() => handleAddToCart(product)}>Add to cart</button>
         </div>
       </div>
     </div>

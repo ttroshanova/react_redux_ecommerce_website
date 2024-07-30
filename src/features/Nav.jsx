@@ -1,18 +1,19 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
-import UserContext from './UserContext'
-import { useContext } from 'react'
+import { useSelector } from 'react-redux'
+
 
 const Nav = ({hidden}) => {
-    const { quantitySum } = useContext(UserContext);
+    const { cartTotalQuantity } = useSelector(state => state.cart)
+
   return (
     <>
     <div className={hidden ? 'nav hidden' : 'nav'}>
         <Link to='/'>
-            TechIn
+            Logo
         </Link>
         <Link to='/cart'>
-            Cart({quantitySum})
+            Cart({cartTotalQuantity})
         </Link>
     </div>
     <Outlet/>
