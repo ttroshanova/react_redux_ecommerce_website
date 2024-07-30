@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import { Items } from './ProductsData'
 import gsap from 'gsap'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {addToCart, getTotalQuantity} from './productsSlice'
 
 

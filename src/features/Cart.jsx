@@ -61,7 +61,7 @@ const Cart = () => {
 
     useEffect(() => {
         dispatch(getTotalQuantity())
-    },[items])
+    },[dispatch, items])
 
     const addContent = () => {
         if(cartTotalQuantity !== 1) {
